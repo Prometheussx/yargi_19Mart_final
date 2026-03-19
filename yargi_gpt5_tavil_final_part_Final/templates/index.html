@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Yargı AI Basit Arayüz</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <style>
+    :root { --bg:#0f172a; --panel:#1e293b; --panel-light:#243350; --text:#f1f5f9; --accent:#3b82f6; --accent-hover:#2563eb; --danger:#dc2626; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial; background:var(--bg); color:var(--text); display:flex; flex-direction:column; height:100vh; }
+    header { padding:10px 16px; background:#0b1528; display:flex; align-items:center; gap:16px; border-bottom:1px solid #1e293b; }
+    header h1 { font-size:16px; margin:0; font-weight:600; letter-spacing:.5px; }
+    #layout { flex:1; display:grid; grid-template-columns: 1fr 320px; gap:12px; padding:12px; overflow:hidden; }
+    #chatSection, #rightPanel { background:var(--panel); border:1px solid #24324a; border-radius:10px; display:flex; flex-direction:column; overflow:hidden; }
+    #messages { flex:1; padding:14px 16px; overflow-y:auto; line-height:1.4; font-size:14px; }
+    .msg { margin-bottom:16px; }
+    .msg.user .bubble { background:#334155; align-self:flex-end; }
+    .msg.assistant .bubble { background:var(--panel-light); }
+    .bubble { padding:10px 12px; border-radius:10px; white-space:pre-wrap; max-width:780px; }
+    form#inputForm { display:flex; flex-direction:column; gap:8px; padding:10px 12px; border-top:1px solid #24324a; background:#162132; }
+    textarea { width:100%; resize:none; background:#0f1b2d; color:var(--text); border:1px solid #2d425f; border-radius:8px; padding:8px 10px; font:inherit; line-height:1.4; min-height:70px; }
+    textarea:focus { outline:2px solid var(--accent); }
+    .row { display:flex; gap:8px; flex-wrap:wrap; }
+    button, label.btn { cursor:pointer; background:var(--accent); color:#fff; border:none; padding:8px 14px; border-radius:8px; font-size:13px; font-weight:500; display:inline-flex; align-items:center; gap:6px; }
+    button.secondary { background:#334155; }
+    button.danger { background:var(--danger); }
+    button:disabled { opacity:.5; cursor:not-allowed; }
+    button:hover:not(:disabled) { background:var(--accent-hover); }
+    input[type=file] { display:none; }
+    #filesList { font-size:12px; color:#cbd5e1; display:flex; flex-direction:column; gap:4px; max-height:120px; overflow:auto; padding-right:4px; }
+    .file-item { background:#1b2738; padding:4px 6px; border-radius:6px; display:flex; justify-content:space-between; align-items:center; }
+    .file-item span.name { max-width:170px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    .file-item button { background:#475569; padding:2px 6px; font-size:11px; }
+    #statusLine { font-size:12px; color:#94a3b8; min-height:18px; }
+    #rightPanel header { background:transparent; border:none; padding:10px 12px; font-size:13px; font-weight:600; display:flex; align-items:center; gap:6px; }
+    #precedents { flex:1; overflow-y:auto; padding:8px 10px; font-size:12.5px; display:flex; flex-direction:column; gap:10px; }
+    .precedent { border:1px solid #32435e; border-radius:8px; padding:6px 8px; background:#1a2536; }
+    .precedent h4 { margin:0 0 4px; font-size:12.5px; font-weight:600; color:#93c5fd; }
+    .precedent details { margin-top:4px; }
+    .precedent summary { cursor:pointer; }
+    .tagline { font-size:11px; opacity:.7; }
+    .controls { display:flex; gap:6px; flex-wrap:wrap; }
+    select { background:#0f1b2d; border:1px solid #2d425f; color:var(--text); padding:6px 8px; border-radius:6px; font-size:13px; }
+    .mode-toggles button { background:#475569; }
+    .mode-toggles button.active { background:#3b82f6; }
+    .markdown h1,.markdown h2,.markdown h3 { margin:14px 0 6px; line-height:1.2; }
+    .markdown h1 { font-size:18px; }
+    .markdown h2 { font-size:16px; }
+    .markdown h3 { font-size:14px; }
+    .markdown ul { margin:6px 0 10px 20px; padding:0; }
+    .markdown li { margin:2px 0; }
+    .loading { opacity:.6; }
+    #sessionId { font-size:11px; background:#1e293b; padding:2px 6px; border-radius:5px; }
+    a.inline { color:#60a5fa; text-decoration:none; }
+    .top-bar-spacer { flex:1; }
+    footer { text-align:center; font-size:11px; padding:4px 0 8px; color:#64748b; }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>⚖️ Yargı AI (Basit)</h1>
+    <div id="sessionId">session: yükleniyor...</div>
+    <div class="top-bar-spacer"></div>
+    <button id="newSessionBtn" class="secondary" title="Yeni Session">🔄 Yeni Session</button>
+  </header>
+  <div id="layout">
+    <section id="chatSection">
+      <div id="messages"></div>
+      <form id="inputForm">
+        <div class="controls">
+          <label class="btn" for="fileInput">📁 Dosya</label>
+          <input id="fileInput" type="file" multiple />
+          <div class="mode-toggles">
+            <button type="button" id="togglePetition" class="secondary" title="Dilekçe">📝 Dilekçe</button>
+          </div>
+          <select id="detailSelect" title="Yanıt stili">
+            <option value="concise">Kısa</option>
+            <option value="detailed">Detaylı</option>
+          </select>
+          <label class="btn secondary" style="display:flex;align-items:center;gap:6px;">
+            <input type="checkbox" id="scanPrecedents" checked style="width:16px;height:16px;accent-color:#3b82f6;" />
+            Emsal Tara
+          </label>
+          <input id="partyInfo" placeholder="Taraf bilgisi (opsiyonel)" style="background:#0f1b2d;border:1px solid #2d425f;color:var(--text);padding:6px 8px;border-radius:6px;" />
+          <input id="situationInfo" placeholder="Durum bilgisi (opsiyonel)" style="background:#0f1b2d;border:1px solid #2d425f;color:var(--text);padding:6px 8px;border-radius:6px;" />
+          <button id="clearBtn" type="button" class="danger" title="Temizle">✖</button>
+        </div>
+        <div id="filesList"></div>
+        <textarea id="msgInput" placeholder="Mesajınızı yazın..." spellcheck="false"></textarea>
+        <div class="row">
+          <button id="sendBtn" type="submit">Gönder ▶</button>
+          <button id="enhanceBtn" type="button" class="secondary">✨ Prompt İyileştir</button>
+        </div>
+        <div id="statusLine"></div>
+      </form>
+    </section>
+    <aside id="rightPanel">
+      <header>📚 Emsal Kararlar</header>
+      <div id="precedents"></div>
+    </aside>
+  </div>
+  <footer>Basit Arayüz • Otomatik session • Markdown çıktılar</footer>
+  <script src="/static/simple_ui.js"></script>
+</body>
+</html>

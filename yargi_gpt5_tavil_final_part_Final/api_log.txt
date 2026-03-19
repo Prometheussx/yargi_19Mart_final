@@ -1,0 +1,181 @@
+INFO:     Started server process [31588]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+✅ Multi-token AI Guard sistemi yüklendi (Petition)
+✅ Multi-token AI Guard sistemi yüklendi (App)
+✅ Multi-token AI Guard sistemi yüklendi (App)
+⚠️  Eski OPENAI_API_KEY bulunamadı, multi-token sistem kullanılacak
+✅ Global AI Manager initialized (Legacy mode - GPT-5)
+✅ AI Guard sistemi başlatıldı
+✅ Hukuki danışman hazır
+✅ PetitionGeneratorAI - Multi-token sistemi aktif (PETITION_TOKEN)
+✅ Dilekçe AI hazır
+🆔 Yeni session ID oluşturuldu: 3a1029ab-2954-4b23-9633-e363cb6b4cba
+INFO:     127.0.0.1:65101 - "GET /session/new HTTP/1.1" 200 OK
+📁 Upload başladı: CDATA1.pdf, session: 3a1029ab-2954-4b23-9633-e363cb6b4cba
+📁 File object: UploadFile(filename='CDATA1.pdf', size=193692, headers=Headers({'content-disposition': 'form-data; name="file"; filename="CDATA1.pdf"', 'content-type': 'application/pdf'}))
+📁 File content type: application/pdf
+📊 Upload öncesi session'da 0 PDF kayıt var
+📊 Okunan byte sayısı: 193692
+📄 PDF işleniyor...
+📊 Metin çıkarıldı: 115038 karakter
+🔍 Vector store'a ekleniyor...
+[VectorStore] ID sanitize: 'CDATA1.pdf' -> 'cdata1.pdf'
+✅ Vector store'a eklendi: {'chunks': 110, 'added': 110}
+INFO:     127.0.0.1:53776 - "POST /upload-file HTTP/1.1" 200 OK
+📁 Upload başladı: CDATA1.pdf, session: 3a1029ab-2954-4b23-9633-e363cb6b4cba
+📁 File object: UploadFile(filename='CDATA1.pdf', size=193692, headers=Headers({'content-disposition': 'form-data; name="file"; filename="CDATA1.pdf"', 'content-type': 'application/pdf'}))
+📁 File content type: application/pdf
+📊 Upload öncesi session'da 110 PDF kayıt var
+📊 Okunan byte sayısı: 193692
+📄 PDF işleniyor...
+📊 Metin çıkarıldı: 115038 karakter
+🔍 Vector store'a ekleniyor...
+✅ Vector store'a eklendi: {'chunks': 110, 'added': 110}
+INFO:     127.0.0.1:61835 - "POST /upload-file HTTP/1.1" 200 OK
+💬 Chat başladı: session=3a1029ab-2954-4b23-9633-e363cb6b4cba, petition=False
+📊 Session'da 110 PDF dosyası bulundu
+🔍 Session ID kontrol ediliyor: 3a1029ab-2954-4b23-9633-e363cb6b4cba
+⏱️  [chat-normal][3a1029ab-2954-4b23-9633-e363cb6b4cba] başladı
+⏱️  [chat-normal][3a1029ab-2954-4b23-9633-e363cb6b4cba] vector search tamamlandı (20 sonuç): +2102.4 ms (toplam 2102.4 ms)
+⏱️  [chat-normal][3a1029ab-2954-4b23-9633-e363cb6b4cba] hafıza/prompt hazır: +322.9 ms (toplam 2425.3 ms)
+📚 [PRECEDENT] Starting precedent preparation for session: 3a1029ab-2954-4b23-9633-e363cb6b4cba
+✅ 5 AI client yüklendi: ['main', 'search', 'petition', 'case_analysis', 'general']
+📚 [PRECEDENT] Generated search query: 'kamu zararı tazminat borcu İŞ-KUR'
+📚 [PRECEDENT] Fetching precedents for query: 'kamu zararı tazminat borcu İŞ-KUR' (limit: 5)
+📚 [PRECEDENT] Calling search_documents_phrase_only...
+📚 [PRECEDENT] Found 20 items from search
+📚 [PRECEDENT] Processing 5 selected items
+📚 [PRECEDENT] Successfully fetched and processed 5 precedents
+📚 [PRECEDENT] Fetched 5 precedents
+📚 [PRECEDENT] Ranked to 5 top precedents (pre-limit)
+📚 [PRECEDENT] Limiting to top 5 precedents for detailed mode
+📚 [PRECEDENT] Storing 5 precedents to vector store
+📚 [PRECEDENT] Storing precedent 1/5: __precedent__169727500 (3561 chars, raw)
+[VectorStore] ID sanitize: '__precedent__169727500' -> 'precedent_169727500-ba2993'
+📚 [PRECEDENT] Store result: {'chunks': 4, 'added': 4, 'precedent_id': '__precedent__169727500'}
+📚 [PRECEDENT] Storing precedent 2/5: __precedent__105966500 (3719 chars, raw)
+[VectorStore] ID sanitize: '__precedent__105966500' -> 'precedent_105966500-edb088'
+📚 [PRECEDENT] Store result: {'chunks': 5, 'added': 5, 'precedent_id': '__precedent__105966500'}
+📚 [PRECEDENT] Storing precedent 3/5: __precedent__111844800 (3236 chars, raw)
+[VectorStore] ID sanitize: '__precedent__111844800' -> 'precedent_111844800-a0c742'
+📚 [PRECEDENT] Store result: {'chunks': 4, 'added': 4, 'precedent_id': '__precedent__111844800'}
+📚 [PRECEDENT] Storing precedent 4/5: __precedent__744658400 (2926 chars, raw)
+[VectorStore] ID sanitize: '__precedent__744658400' -> 'precedent_744658400-2e5768'
+📚 [PRECEDENT] Store result: {'chunks': 3, 'added': 3, 'precedent_id': '__precedent__744658400'}
+📚 [PRECEDENT] Storing precedent 5/5: __precedent__739041800 (4169 chars, raw)
+[VectorStore] ID sanitize: '__precedent__739041800' -> 'precedent_739041800-14c3b7'
+📚 [PRECEDENT] Store result: {'chunks': 6, 'added': 6, 'precedent_id': '__precedent__739041800'}
+📚 [PRECEDENT] Successfully stored 5 precedents
+📚 [PRECEDENT] Stored 5 precedents to vector store
+📚 [PRECEDENT] Preparation complete: 5 selected, 5 stored
+[VectorStore] Precedent search filtered to 5 pdf_ids for current analysis
+📑 [Pinecone] 12 semantik chunk bulundu (deneme 1)
+📑 Detaylı mod: 5 emsal yüklendi, 12 semantik chunk — icerik_blogu=7744ch (search='kamu zararı tazminat borcu İŞ-KUR')
+⏱️  [chat-normal][3a1029ab-2954-4b23-9633-e363cb6b4cba] emsal bağlam hazır: +26402.8 ms (toplam 28828.1 ms)
+🔍 [WebContext] Emsal query web aramaya aktarıldı: 'kamu zararı tazminat borcu İŞ-KUR'
+🔍 [WebContext] Tespit edilen hukuk alanı: 'default' → domain seti seçildi
+🔍 [WebContext] Düşük skor (0.246 < 0.4) → atlandı: https://www.lexpera.com.tr/resmi-gazete/metin/turkiye-is-kur
+🔍 [WebContext] Düşük skor (0.171 < 0.4) → atlandı: https://dergi.danistay.gov.tr/documents/erkan%20y%C4%B1lmaz.
+🔍 [WebContext] Düşük skor (0.169 < 0.4) → atlandı: https://www.lexpera.com.tr/mevzuat/yonetmelikler/kamu-zararl
+🔍 [WebContext] Düşük skor (0.155 < 0.4) → atlandı: https://www.lexpera.com.tr/resmi-gazete/metin/turkiye-is-kur
+🔍 [WebContext] Düşük skor (0.142 < 0.4) → atlandı: https://www.lexpera.com.tr/resmi-gazete/metin/6183-sayili-ka
+🔍 [WebContext] Düşük skor (0.102 < 0.4) → atlandı: https://www.yargitay.gov.tr/documents/isbolumu/isbolumukarar
+🔍 [WebContext] Düşük skor (0.070 < 0.4) → atlandı: https://www.lexpera.com.tr/mevzuat/kanunlar/abonelik-sozlesm
+🔍 [WebContext] Düşük skor (0.028 < 0.4) → atlandı: https://www.lexpera.com.tr/mevzuat/kanunlar/bazi-kanun-ve-ka
+🔍 [WebContext] 8 sonuç düşük skor nedeniyle filtrelendi (min_score=0.4)
+⏱️  [chat-normal][3a1029ab-2954-4b23-9633-e363cb6b4cba] AI yanıtı alındı: +118870.0 ms (toplam 147698.1 ms)
+✅ [chat-normal][3a1029ab-2954-4b23-9633-e363cb6b4cba] bitti: toplam 147699.3 ms
+INFO:     127.0.0.1:61859 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61438 - "GET /chat-precedents/3a1029ab-2954-4b23-9633-e363cb6b4cba/p_3ba7a3f44f HTTP/1.1" 200 OK
+🆔 Yeni session ID oluşturuldu: 983bb342-e84c-40fb-bf42-e44bd88c5cff
+INFO:     127.0.0.1:60415 - "GET /session/new HTTP/1.1" 200 OK
+🆔 Yeni session ID oluşturuldu: dbda0ff9-f294-4c39-a37a-d25a4aa50742
+INFO:     127.0.0.1:62307 - "GET /session/new HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51136 - "POST /enhance-prompt HTTP/1.1" 200 OK
+📁 Upload başladı: CDATA1.pdf, session: dbda0ff9-f294-4c39-a37a-d25a4aa50742
+📁 File object: UploadFile(filename='CDATA1.pdf', size=193692, headers=Headers({'content-disposition': 'form-data; name="file"; filename="CDATA1.pdf"', 'content-type': 'application/pdf'}))
+📁 File content type: application/pdf
+📊 Upload öncesi session'da 0 PDF kayıt var
+📊 Okunan byte sayısı: 193692
+📄 PDF işleniyor...
+📊 Metin çıkarıldı: 115038 karakter
+🔍 Vector store'a ekleniyor...
+📁 Upload başladı: CDATA1.pdf, session: dbda0ff9-f294-4c39-a37a-d25a4aa50742
+📁 File object: UploadFile(filename='CDATA1.pdf', size=193692, headers=Headers({'content-disposition': 'form-data; name="file"; filename="CDATA1.pdf"', 'content-type': 'application/pdf'}))
+📁 File content type: application/pdf
+📊 Upload öncesi session'da 10 PDF kayıt var
+📊 Okunan byte sayısı: 193692
+📄 PDF işleniyor...
+📊 Metin çıkarıldı: 115038 karakter
+🔍 Vector store'a ekleniyor...
+✅ Vector store'a eklendi: {'chunks': 110, 'added': 110}
+INFO:     127.0.0.1:59793 - "POST /upload-file HTTP/1.1" 200 OK
+✅ Vector store'a eklendi: {'chunks': 110, 'added': 110}
+INFO:     127.0.0.1:59805 - "POST /upload-file HTTP/1.1" 200 OK
+📁 Upload başladı: CDATA1.pdf, session: dbda0ff9-f294-4c39-a37a-d25a4aa50742
+📁 File object: UploadFile(filename='CDATA1.pdf', size=193692, headers=Headers({'content-disposition': 'form-data; name="file"; filename="CDATA1.pdf"', 'content-type': 'application/pdf'}))
+📁 File content type: application/pdf
+📊 Upload öncesi session'da 110 PDF kayıt var
+📊 Okunan byte sayısı: 193692
+📄 PDF işleniyor...
+📊 Metin çıkarıldı: 115038 karakter
+🔍 Vector store'a ekleniyor...
+✅ Vector store'a eklendi: {'chunks': 110, 'added': 110}
+INFO:     127.0.0.1:59827 - "POST /upload-file HTTP/1.1" 200 OK
+💬 Chat başladı: session=dbda0ff9-f294-4c39-a37a-d25a4aa50742, petition=False
+📊 Session'da 110 PDF dosyası bulundu
+🔍 Session ID kontrol ediliyor: dbda0ff9-f294-4c39-a37a-d25a4aa50742
+⏱️  [chat-normal][dbda0ff9-f294-4c39-a37a-d25a4aa50742] başladı
+⏱️  [chat-normal][dbda0ff9-f294-4c39-a37a-d25a4aa50742] vector search tamamlandı (20 sonuç): +1894.3 ms (toplam 1894.3 ms)
+⏱️  [chat-normal][dbda0ff9-f294-4c39-a37a-d25a4aa50742] hafıza/prompt hazır: +293.1 ms (toplam 2187.4 ms)
+📚 [PRECEDENT] Starting precedent preparation for session: dbda0ff9-f294-4c39-a37a-d25a4aa50742
+📚 [PRECEDENT] Generated search query: 'zimmet suçu beraat temyiz yolları'
+📚 [PRECEDENT] Fetching precedents for query: 'zimmet suçu beraat temyiz yolları' (limit: 5)
+📚 [PRECEDENT] Calling search_documents_phrase_only...
+📚 [PRECEDENT] Found 20 items from search
+📚 [PRECEDENT] Processing 5 selected items
+📚 [PRECEDENT] Successfully fetched and processed 5 precedents
+📚 [PRECEDENT] Fetched 5 precedents
+📚 [PRECEDENT] Ranked to 5 top precedents (pre-limit)
+📚 [PRECEDENT] Limiting to top 5 precedents for detailed mode
+📚 [PRECEDENT] Storing 5 precedents to vector store
+📚 [PRECEDENT] Storing precedent 1/5: __precedent__1106811600 (1892 chars, raw)
+[VectorStore] ID sanitize: '__precedent__1106811600' -> 'precedent_1106811600-ead0b7'
+📚 [PRECEDENT] Store result: {'chunks': 3, 'added': 3, 'precedent_id': '__precedent__1106811600'}
+📚 [PRECEDENT] Storing precedent 2/5: __precedent__644961100 (1188 chars, raw)
+[VectorStore] ID sanitize: '__precedent__644961100' -> 'precedent_644961100-752ae1'
+📚 [PRECEDENT] Store result: {'chunks': 1, 'added': 1, 'precedent_id': '__precedent__644961100'}
+📚 [PRECEDENT] Storing precedent 3/5: __precedent__611745500 (3023 chars, raw)
+[VectorStore] ID sanitize: '__precedent__611745500' -> 'precedent_611745500-da2c92'
+📚 [PRECEDENT] Store result: {'chunks': 3, 'added': 3, 'precedent_id': '__precedent__611745500'}
+📚 [PRECEDENT] Storing precedent 4/5: __precedent__742638700 (2349 chars, raw)
+[VectorStore] ID sanitize: '__precedent__742638700' -> 'precedent_742638700-327dce'
+📚 [PRECEDENT] Store result: {'chunks': 3, 'added': 3, 'precedent_id': '__precedent__742638700'}
+📚 [PRECEDENT] Storing precedent 5/5: __precedent__904413200 (2118 chars, raw)
+[VectorStore] ID sanitize: '__precedent__904413200' -> 'precedent_904413200-6bd98f'
+📚 [PRECEDENT] Store result: {'chunks': 4, 'added': 4, 'precedent_id': '__precedent__904413200'}
+📚 [PRECEDENT] Successfully stored 5 precedents
+📚 [PRECEDENT] Stored 5 precedents to vector store
+📚 [PRECEDENT] Preparation complete: 5 selected, 5 stored
+[VectorStore] Precedent search filtered to 5 pdf_ids for current analysis
+📑 [Pinecone] 12 semantik chunk bulundu (deneme 1)
+📑 Detaylı mod: 5 emsal yüklendi, 12 semantik chunk — icerik_blogu=10235ch (search='zimmet suçu beraat temyiz yolları')
+⏱️  [chat-normal][dbda0ff9-f294-4c39-a37a-d25a4aa50742] emsal bağlam hazır: +39650.0 ms (toplam 41837.4 ms)
+🔍 [WebContext] Emsal query web aramaya aktarıldı: 'zimmet suçu beraat temyiz yolları'
+🔍 [WebContext] Tespit edilen hukuk alanı: 'ceza' → domain seti seçildi
+✅ [VectorDB] web_1 kaydedildi: 23607 char → https://kararara.com/forum/viewtopic.php?t=19606
+✅ [VectorDB] web_2 kaydedildi: 25703 char → https://www.lexpera.com.tr/ictihat/arama?searchquery=%22zimm
+✅ [VectorDB] web_3 kaydedildi: 14943 char → https://www.kararara.com/forum/viewtopic.php?t=639707
+✅ [VectorDB] web_4 kaydedildi: 33691 char → https://www.kararara.com/forum/viewtopic.php?t=636311
+✅ [VectorDB] web_5 kaydedildi: 48771 char → https://kararara.com/forum/viewtopic.php?t=25479&start=10
+✅ [VectorDB] web_6 kaydedildi: 20966 char → https://www.lexpera.com.tr/ictihat/yargitay/ceza-genel-kurul
+⏱️  [chat-normal][dbda0ff9-f294-4c39-a37a-d25a4aa50742] web içerikleri VectorDB'ye kaydedildi: +25678.2 ms (toplam 67515.6 ms)
+⏱️  [chat-normal][dbda0ff9-f294-4c39-a37a-d25a4aa50742] web semantik alıntılar hazır: +273.2 ms (toplam 67788.8 ms)
+⏱️  [chat-normal][dbda0ff9-f294-4c39-a37a-d25a4aa50742] AI yanıtı alındı: +104031.8 ms (toplam 171820.7 ms)
+ℹ️  [Web Sources] 4 kaynak AI tarafından atıf yapılmadı, footer'dan çıkarıldı
+ℹ️  [Web Sources] AI kendi Kaynaklar bölümünü oluşturmuş; footer tekrar yazılmıyor
+✅ [chat-normal][dbda0ff9-f294-4c39-a37a-d25a4aa50742] bitti: toplam 171822.2 ms
+INFO:     127.0.0.1:53454 - "POST /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53466 - "GET /chat-precedents/dbda0ff9-f294-4c39-a37a-d25a4aa50742/p_a5030f5fec HTTP/1.1" 200 OK

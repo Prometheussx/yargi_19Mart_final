@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+PyPDF2
+python-dotenv
+openai
+langchain-text-splitters
+pinecone
+tavily-python
+requests
+streamlit
+python-docx
+httpx
+markitdown
+pydantic
